@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Sign-In</title>
+    <link rel="stylesheet" href="amazonBasic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="auth-body">
+
+  <!-- Minimal header for login page -->
+  <header class="auth-header">
+    <div class="logo auth-logo" onclick="window.location.href='index.html'" style="cursor:pointer;"></div>
+  </header>
+
+  <div class="auth-container">
+    <div class="auth-box" id="loginBox">
+      <h1 class="auth-title">Sign in</h1>
+
+      <div id="authError" class="auth-error" style="display:none;"></div>
+
+      <label class="auth-label">Email or mobile phone number</label>
+      <input type="text" id="loginEmail" class="auth-input" placeholder="Enter email or phone">
+
+      <label class="auth-label" id="passwordLabel">Password</label>
+      <div class="password-wrap">
+        <input type="password" id="loginPassword" class="auth-input" placeholder="Enter password">
+        <span class="toggle-pwd" onclick="togglePassword('loginPassword', this)">Show</span>
+      </div>
+
+      <button class="auth-btn" onclick="handleLogin()">Continue</button>
+
+      <p class="auth-terms">
+        By continuing, you agree to Amazon's
+        <a href="#">Conditions of Use</a> and
+        <a href="#">Privacy Notice</a>.
+      </p>
+
+      <div class="auth-divider"><span>New to Amazon?</span></div>
+
+      <button class="auth-btn-secondary" onclick="showRegister()">
+        Create your Amazon account
+      </button>
+    </div>
+
+    <!-- Register Box (hidden by default) -->
+    <div class="auth-box" id="registerBox" style="display:none;">
+      <h1 class="auth-title">Create account</h1>
+
+      <div id="regError" class="auth-error" style="display:none;"></div>
+
+      <label class="auth-label">Your name</label>
+      <input type="text" id="regName" class="auth-input" placeholder="First and last name">
+
+      <label class="auth-label">Email</label>
+      <input type="email" id="regEmail" class="auth-input" placeholder="Enter your email">
+
+      <label class="auth-label">Password</label>
+      <div class="password-wrap">
+        <input type="password" id="regPassword" class="auth-input" placeholder="At least 6 characters">
+        <span class="toggle-pwd" onclick="togglePassword('regPassword', this)">Show</span>
+      </div>
+
+      <label class="auth-label">Re-enter password</label>
+      <div class="password-wrap">
+        <input type="password" id="regPassword2" class="auth-input" placeholder="Re-enter password">
+        <span class="toggle-pwd" onclick="togglePassword('regPassword2', this)">Show</span>
+      </div>
+
+      <button class="auth-btn" onclick="handleRegister()">Create your Amazon account</button>
+
+      <p class="auth-terms">
+        By creating an account, you agree to Amazon's
+        <a href="#">Conditions of Use</a> and
+        <a href="#">Privacy Notice</a>.
+      </p>
+
+      <div class="auth-divider"><span>Already have an account?</span></div>
+      <button class="auth-btn-secondary" onclick="showLogin()">Sign in</button>
+    </div>
+  </div>
+
+  <footer class="auth-footer">
+    <div class="auth-footer-links">
+      <a href="#">Conditions of Use</a>
+      <a href="#">Privacy Notice</a>
+      <a href="#">Help</a>
+    </div>
+    <p>&copy; 1996-2026, Amazon.com, Inc. or its affiliates</p>
+  </footer>
+
+  <script src="amazonBasic.js"></script>
+</body>
+</html>

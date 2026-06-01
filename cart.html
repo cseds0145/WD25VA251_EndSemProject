@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon - Shopping Cart</title>
+    <link rel="stylesheet" href="amazonBasic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+       <div class="nav-logo border" onclick="window.location.href='index.html'" style="cursor:pointer;">
+        <div class="logo"></div>
+       </div> 
+       <div class="nav-search" style="flex:1; max-width:600px; margin:0 20px;">
+        <select class="search-select"><option>All</option></select>
+        <input placeholder="Search Amazon" class="search-input">
+        <div class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+       </div>
+       <div class="nav-sigin border" onclick="goToLogin()" style="cursor:pointer;">
+        <p><span id="userGreeting">Hello, sign in</span></p>
+        <p class="nav-second">Account &amp; Lists</p>
+       </div>
+       <div class="nav-cart border" style="position:relative;">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cartCount" class="cart-badge">0</span>
+        Cart
+       </div>
+    </div>
+  </header>
+
+  <div class="cart-page">
+    <div class="cart-main">
+      <h1 class="cart-heading">Shopping Cart</h1>
+      <div class="cart-deselect">
+        <a href="#" onclick="clearCart()">Deselect all items</a>
+      </div>
+
+      <div id="cartItems">
+        <!-- Filled by JS -->
+      </div>
+
+      <div id="emptyCart" class="empty-cart" style="display:none;">
+        <i class="fa-solid fa-cart-shopping" style="font-size:3rem; color:#ccc;"></i>
+        <p>Your Amazon Cart is empty.</p>
+        <a href="index.html" class="continue-shopping">Continue shopping</a>
+      </div>
+
+      <div class="cart-subtotal-row" id="cartSubtotalRow">
+        Subtotal (<span id="itemCountLabel">0 items</span>):
+        <strong id="subtotalAmount">₹0</strong>
+      </div>
+    </div>
+
+    <div class="cart-sidebar">
+      <div class="cart-summary-box">
+        <p class="free-delivery">
+          <i class="fa-solid fa-circle-check" style="color:green;"></i>
+          Your order qualifies for FREE Delivery.
+          <a href="#">Choose this option at checkout.</a>
+        </p>
+        <p class="summary-subtotal">
+          Subtotal (<span id="sidebarItemCount">0 items</span>):
+          <strong id="sidebarSubtotal">₹0</strong>
+        </p>
+        <div class="gift-checkbox">
+          <input type="checkbox" id="giftCheck">
+          <label for="giftCheck">This order contains a gift</label>
+        </div>
+        <button class="checkout-btn" onclick="handleCheckout()">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order confirmation modal -->
+  <div id="checkoutModal" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+      <i class="fa-solid fa-circle-check modal-icon"></i>
+      <h2>Order Placed Successfully!</h2>
+      <p>Thank you for shopping with Amazon. Your order will be delivered soon.</p>
+      <button class="auth-btn" style="margin-top:15px;" onclick="closeModal()">Continue Shopping</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="foot-panel1">Back to top</div>
+    <div class="fooot-panel4" style="padding-top:15px;">
+        <div class="copyright">&copy; 1996-2026, Amazon.com, Inc. or its affiliates</div>
+    </div>
+  </footer>
+
+  <script src="amazonBasic.js"></script>
+</body>
+</html>
